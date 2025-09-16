@@ -3,12 +3,9 @@
 sudo ufw reset
 #Habilitar ufw de nuevo
 sudo ufw enable
-#Borrar las reglas de iptables
-sudo iptables -F
-#Bloquear todas las conexiones entrantes
+#Establecer politica restrictiva por defecto
 sudo ufw default deny incoming
-#Permitir todas las conexiones salientes
-sudo ufw default allow outgoing
+sudo ufw default deny outgoing
 #Permitir SFTP puerto 22
 sudo ufw allow from 10.11.0.125 to any port 22
 #Permitir Samba en puertos 137,138,139 y 445
@@ -47,4 +44,3 @@ sudo ufw allow to any port 110 proto tcp
 sudo ufw allow from 10.11.0.0/24 to any port 3306 proto tcp
 #Imprimir todas las reglas del firewall
 sudo ufw status verbose
-
